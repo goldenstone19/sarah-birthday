@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Sarah ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fa83b2, #d9c2ff);
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      animation: float 8s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin-bottom: 30px;
+      animation: fadeIn 3s ease;
+    }
+
+    .btn {
+      padding: 15px 35px;
+      border: none;
+      border-radius: 50px;
+      background: white;
+      color: #ff4f81;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff4f81;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message-box {
+      max-width: 800px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .message-box h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .message-box p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: 0.4s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .surprise-box {
+      max-width: 700px;
+    }
+
+    .surprise-message {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 280px;
+      border-radius: 50px;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .message-box h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero p,
+      .message-box p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div style="font-size:5rem; margin-bottom:10px;">🌸</div>
+      <h1>Happy Birthday Sarah ❤️</h1>
+      <p style="font-size:1.2rem; margin-top:-10px; margin-bottom:25px; opacity:0.9;">
+        For the girl who loves lilies 🌸
+      </p>
+      <p>
+        Today is all about celebrating someone truly special. 
+        I made this little website just for you because you deserve something unique and unforgettable.
+      </p>
+
+      <a href="#message" class="btn">Open Your Surprise 🎁</a>
+
+      <audio controls autoplay loop>
+        <source src="Lana Del Rey - Young and Beautiful (from _The Great Gatsby_ Soundtrack).mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+
+    <!-- MESSAGE SECTION -->
+    <section id="message">
+      <div class="message-box" style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; justify-content:center;">
+        
+        <div style="flex:1; min-width:280px; text-align:left;">
+          <h2>A Message For You 💌</h2>
+
+          <p>
+            Sarah, I just want you to know how amazing of a friend you are. and a create reel sender too 
+            <br><br>
+            You bring so much light and happiness wherever you go, and honestly, getting to know you has been one of the best things ever.
+            <br><br>
+            I made this little website just for you because you deserve something unique and special on your birthday i hope i didn't over do it too. Thought since i know how to code websites why not make one just for you so i created this.
+            <br><br>
+            I hope this year brings you peace, happiness, success, and beautiful memories that stay with you forever.
+            <br><br>
+            Happy Birthday Sarah ❤️✨
+          </p>
+        </div>
+
+        <div style="flex:1; min-width:250px; display:flex; justify-content:center;">
+          <div style="position:relative; display:flex; justify-content:center; align-items:center;">
+          <div style="position:absolute; top:-20px; left:-20px; font-size:3rem;">🌸</div>
+          <div style="position:absolute; bottom:-20px; right:-20px; font-size:3rem;">🌸</div>
+
+          <img src="WhatsApp Image 2026-05-24 at 3.45.10 PMm.jpeg" alt="Sarah"
+          style="width:320px; height:420px; object-fit:cover; border-radius:30px; box-shadow:0 10px 30px rgba(0,0,0,0.3); border:4px solid rgba(255,255,255,0.4);">
+        </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SURPRISE SECTION -->
+    <section>
+      <div class="surprise-box">
+        <h1 style="font-size: 3.5rem; margin-bottom: 20px;">
+          Final Surprise 🎉
+        </h1>
+
+        <button class="btn" onclick="showSurprise()">
+          Click Me Sarah 💖
+        </button>
+
+        <div class="surprise-message" id="surpriseMessage" style="display:none; flex-direction:column; align-items:center; gap:20px;">
+          <img src="WhatsApp Image 2026-05-24 at 3.45.10 PM.jpeg" alt="Jimmy"
+          style="width:220px; height:220px; object-fit:cover; border-radius:50%; border:5px solid white; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
+
+          <div>
+            Happy Birthday once again Sarah ❤️🎂🌸<br>
+            — From your very very sexy friend Jimmy 💖
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer>
+      Made with ❤️ by Jimmy
+    </footer>
+      Made with ❤️ by Jimmy
+    </footer>
+
+  </div>
+
+
+  <script>
+    // Floating hearts
+    const heartsContainer = document.getElementById('hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 300);
+
+
+    // Surprise message
+    function showSurprise() {
+      const surprise = document.getElementById('surpriseMessage');
+      surprise.style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
